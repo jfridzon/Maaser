@@ -1,0 +1,27 @@
+# Copy to .github/workflows/notify.yml in your private data repo. See docs/NOTIFICATIONS.md.
+name: Payday reminders
+on:
+  schedule:
+    - cron: '0 13 * * *'   # once a day, in UTC
+  workflow_dispatch:
+    inputs:
+      test:
+        description: Send a test notification now
+        type: boolean
+        default: true
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save web-push
+      - run: node push/send.mjs
+        env:
+          TZ: UTC   # set your time zone, for example America/New_York
+          TEST: ${{ inputs.test }}
+          VAPID_PUBLIC_KEY: ${{ vars.VAPID_PUBLIC_KEY }}
+          VAPID_PRIVATE_KEY: ${{ secrets.VAPID_PRIVATE_KEY }}
+          VAPID_CONTACT: ${{ vars.VAPID_CONTACT }}

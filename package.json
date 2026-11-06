@@ -1,0 +1,9 @@
+{
+  "name": "maaser",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A private, installable tracker for maaser (the tithe): what you owe and what you give.",
+  "license": "MIT",
+  "scripts": { "test": "node --test", "start": "python3 -m http.server 8080" }
+}

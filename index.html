@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Maaser</title>
+<meta name="description" content="Track what you owe and what you give.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Maaser">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#0C7F75">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="icon" href="assets/icon-180.png">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="aurora" aria-hidden="true"><i></i><i></i></div>
+<div id="app">
+  <section class="screen" id="s-home"></section>
+  <section class="screen" id="s-moves"></section>
+  <section class="screen" id="s-give"></section>
+  <section class="screen" id="s-stats"></section>
+</div>
+<div class="dock" id="dock">
+  <button class="fab gl" id="fab" data-act="add"></button>
+  <nav class="tabs glass" id="tabs" aria-label="Sections"></nav>
+  <button class="eyebtn glass gl" id="eyeBtn" data-act="eye"></button>
+</div>
+<div id="sheets"></div>
+<div class="toast glass" id="toast" role="status"><span id="toastText"></span><button id="toastUndo" data-act="undo"></button></div>
+<label class="haptic" aria-hidden="true"><input type="checkbox" switch id="haptic" tabindex="-1"></label>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
